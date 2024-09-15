@@ -32,7 +32,7 @@ release {
 
     // Configuration for Git
     git {
-        requireBranch = 'main'          // Ensure you're on the main branch
+        requireBranch = 'master'          // Ensure you're on the main branch
         pushToRemote = 'origin'         // Specify the Git remote for pushing tags/commits
     }
 }
