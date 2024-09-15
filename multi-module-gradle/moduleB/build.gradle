@@ -1,0 +1,12 @@
+// moduleB/build.gradle
+
+plugins {
+    id 'application'
+}
+
+mainClassName = 'com.example.moduleB.AppB'
+
+dependencies {
+    implementation 'com.google.guava:guava:31.0.1-jre'
+    implementation project(':moduleA')  // moduleB depends on moduleA
+}

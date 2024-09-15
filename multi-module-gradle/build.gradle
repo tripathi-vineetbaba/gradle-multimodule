@@ -1,0 +1,54 @@
+// Root build.gradle file
+plugins {
+    id 'java'
+    id 'net.researchgate.release' version '2.8.1'
+}
+
+// Versions of dependencies
+ext {
+    junitVersion = '5.8.1'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+release {
+    failOnSnapshotDependencies = true // Fail if there are any snapshot dependencies
+    tagTemplate = 'v${version}'        // Tag template for Git
+    preCommitText = '[Gradle Release]' // Pre-commit message prefix for release commits
+
+    // Configuration for Git
+    git {
+        requireBranch = 'main'          // Ensure you're on the main branch
+        pushToRemote = 'origin'         // Specify the Git remote for pushing tags/commits
+    }
+}
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = uri('../DeployDir') // Local directory for deployment
+        }
+    }
+}
+
+
