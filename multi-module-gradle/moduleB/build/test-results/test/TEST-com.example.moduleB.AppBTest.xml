@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.moduleB.AppBTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-15T16:03:46" hostname="VINEET-PC" time="0.031">
+  <properties/>
+  <testcase name="testAppB()" classname="com.example.moduleB.AppBTest" time="0.031"/>
+  <system-out><![CDATA[This is Test B
+Hello from Module A! And hello from Module B!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

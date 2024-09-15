@@ -30,6 +30,7 @@ release {
     tagTemplate = 'v${version}'        // Tag template for Git
     preCommitText = '[Gradle Release]' // Pre-commit message prefix for release commits
 
+
     // Configuration for Git
     git {
         requireBranch = 'master'          // Ensure you're on the main branch
